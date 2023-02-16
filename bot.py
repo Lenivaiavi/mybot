@@ -3,14 +3,15 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import settings
 
 logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 def greet_user(update, context):
-    print("Вызван /start")
+    logger.info('Вызван /start')
     update.message.reply_text('Привет, пользователь, у тебя наконец-то получилось! Ты вызвал команду /start')
 
 def talk_to_me(update, context):
     user_text = update.message.text 
-    print(user_text)
+    logger.info(user_text)
     update.message.reply_text(user_text)
 
 def main():
